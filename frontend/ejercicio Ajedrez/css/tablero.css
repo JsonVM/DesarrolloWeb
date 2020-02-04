@@ -1,0 +1,25 @@
+*{
+    background:white;
+}
+
+.container {
+    width: 610px;
+    height: 610px;
+    background: darkgray;
+    margin: auto;
+    padding: 10px;
+}
+
+.item {
+    width: 76.25px;
+    height: 76.25px;
+    background: white;
+    float: left;
+}
+
+.item2 {
+    width: 76.25px;
+    height: 76.25px;
+    background: black;
+    float: left;
+}
