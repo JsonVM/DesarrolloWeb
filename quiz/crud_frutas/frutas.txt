@@ -1,0 +1,50 @@
+let frutas = [{ nombre: "Manzana", imagen: "1.jpg" }];
+
+listarFrutasCrud = function() {
+  let data = "";
+  for (let i = 0; i < frutas.length; i++) {
+    let fruta = frutas[i];
+    data += `<div>`
+    data += `<p>`
+    data += `imagen: imagen ${fruta.imagen} nombre: ${fruta.nombre}`
+    data += `</p>`
+    data += '<input class="btn btn-primary" type="button" onClick="eliminarFruta('+i+')" value="eliminar">'
+    data += `</div>`
+  }
+
+  document.getElementById("listadoCRUD").innerHTML = data;
+};
+
+listarFrutasPanel = function() {
+  let data = "";
+  for (let i = 0; i < frutas.length; i++) {
+    let fruta = frutas[i];
+    data += `<img src="imagenes/${fruta.imagen}" alt="${fruta.nombre}" onClick="mostrarNombreImagen(${i})" width="200" height="200"></img>`
+  }
+  document.getElementById("imagesListadoPrincipal").innerHTML = data;
+
+};
+
+mostrarNombreImagen = function(i) {
+  let n = frutas[i].nombre
+  alert(n);
+};
+
+agregarFruta = function() {
+  let nom = document.getElementById("nombreFruta").value
+  let img = document.getElementById("imagen").value
+  let fruta = {nombre:nom, imagen: img}
+  frutas.push(fruta)
+
+  listarFrutasPanel()
+  listarFrutasCrud()
+};
+
+eliminarFruta = function(index) {
+  frutas.splice(index,1)
+    listarFrutasCrud()
+    listarFrutasPanel()
+};
+
+//getAll();
+//getAllImages();
